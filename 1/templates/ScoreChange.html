@@ -1,0 +1,163 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>成绩管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+
+<script>
+function myFunction()
+{
+alert("修改成功!");
+}
+function openwin(a)
+{
+window.open('/page/'+ '?'+ 'courseid' + '=' + a,'','width=600,height=400,menubar=no,toolbar=no, status=no, menubar=no, resizable=no, location = no,top=200,left=630,scrollbars=no')
+}
+</script>
+
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/admin_home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			
+			<li><a href="/admin_course/">课程信息</a>
+			</li>
+			<li><a href="/admin_score/">成绩信息</a>
+                        </li>
+			<li><a href="/admin_contro/">选课系统控制</a></li>			
+			<li><a href="/admin_logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+ 	<div class="welcome">
+                  
+		<p>admin你好！</p>
+                   
+	</div> 
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+<form action="" method="post">
+	<div class="main">
+           <div class="gallery">
+	  
+			<div class="details">
+			
+			<div class="det_pic">
+                             <hr/>
+			     <div class="header_bg11">
+               <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="7%"><font color="#FFFFFF">序号</font></th>
+                  <th width="20%"><font color="#FFFFFF">学号</font></th>
+                  <th width="15%"><font color="#FFFFFF">姓名</font></th>
+                  <th width="15%"><font color="#FFFFFF">课程代码</font></th>
+                  <th width="25%"><font color="#FFFFFF">课程名称</font></th>
+                  <th width="10%"><font color="#FFFFFF">总成绩</font></th>
+		  <th width="8%"></th>
+                </tr>
+                </table>
+         	  
+			</div>
+                        
+			<div class="det_text">
+			
+
+		<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+
+		<tr>
+                  <th width="7%">1</th>
+                  <th width="20%">{{o.StudentS.StudentID}}</th>
+                  <th width="15%">{{o.StudentS.BasicInformation.Name}}</th>
+                  <th width="15%">{{o.SelectedCourse.CourseID}}</th>
+                  <th width="25%">{{o.SelectedCourse.CourseName}}</th>
+                  <th width="10%"><input type="text" name="score" value="{{o.Score}}" style="width: 30px;"/></th>
+                  <th width="8%"><input type="submit" value="修改" onclick="myFunction()"/></th>
+                </tr>
+                 <hr/>
+{{a}}
+               </table>
+	<!-- <table>
+        {{ o.as_table }}
+    </table>
+    <input type="submit" value="更改">-->
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+</body>
+</html>

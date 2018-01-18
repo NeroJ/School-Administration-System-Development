@@ -1,0 +1,197 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>学籍管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="#">必修确认</a></li>
+                                        <li><a href="#">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+					<li><a href="/changepassword/">修改密码</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+          <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+		{% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+		<div class="gallery">	
+			<h3 class="style1">个人信息：</h3>
+                        <hr/>
+                        {% for user in p %}
+			<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;" class="addlist">
+				<tr>
+		    			<th width="12%">姓名：</th>
+		    			<td>{{user.BasicInformation.Name}}</td>
+		    			<th width="12%">性别：</th>
+		    			<td width="43%">{{user.BasicInformation.Sex}}</td>
+					
+		    		</tr>
+    				
+				<tr>
+		    			<th>学号：</th>
+		    			<td>{{user.BasicInformation.StudentID}}</td>
+		    			<th>学院：</th>
+		    			<td>{{user.BasicInformation.Institute}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>系：</th>
+		    			<td>{{user.BasicInformation.Faculty}}</td>
+		    			<th>专业：</th>
+		    			<td>{{user.BasicInformation.Major}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>年级：</th>
+		    			<td>{{user.BasicInformation.Grade}}</td>
+		    			<th>班级：</th>
+		    			<td>{{user.BasicInformation.ClassID}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>民族：</th>
+		    			<td>{{user.BasicInformation.Nation}}</td>
+		    			<th>籍贯：</th>
+		    			<td>{{user.BasicInformation.Origin}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>出生日期：</th>
+		    			<td>{{user.BasicInformation.BirthDate}}</td>
+		    			<th>政治面貌：</th>
+		    			<td>{{user.BasicInformation.PoliticStatus}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>入学日期：</th>
+		    			<td>{{user.BasicInformation.EntranceDate}}</td>
+		    			<th>联系电话：</th>
+		    			<td>{{user.BasicInformation.Phone}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>身份证号：</th>
+		    			<td>{{user.BasicInformation.StatusID}}</td>
+		    			<th>国籍：</th>
+		    			<td>{{user.BasicInformation.Nationality}}</td>
+		    		</tr>
+
+				<tr>
+		    			<th>来源省份：</th>
+		    			<td>{{user.BasicInformation.Province}}</td>
+		    			<th>毕业中学：</th>
+		    			<td>{{user.BasicInformation.GraduatedHighSchool}}</td>
+		    		</tr>
+
+			</table>
+                        {% endfor %}
+	<div class="clear"></div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

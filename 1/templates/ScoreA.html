@@ -1,0 +1,236 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>成绩管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+
+<script>
+function myFunction()
+{
+alert("恭喜您，选课成功!");
+}
+function openwin(a)
+{
+window.open('/page/'+ '?'+ 'courseid' + '=' + a,'','width=600,height=400,menubar=no,toolbar=no, status=no, menubar=no, resizable=no, location = no,top=200,left=630,scrollbars=no')
+}
+</script>
+
+<style type="text/css"> 
+td.td_center{text-align:center;} 
+.ys01{background-color:#E6F0FE;}
+ </style> 
+
+<script language="javascript" type="text/javascript"> 
+
+function order1(){ 
+     
+	 var oTable1 = document.getElementById("bbsTab1"); 
+     for(var i=0;i<oTable1.rows.length;i++){ 
+         oTable1.rows[i].cells[0].innerHTML = (i+1); 
+         if(i%2==0)    //偶数行 
+            oTable1.rows[i].className = "ys01";
+     } 
+ }
+ 
+function order(){ 
+     
+	 var oTable = document.getElementById("bbsTab"); 
+     for(var i=0;i<oTable.rows.length;i++){ 
+         oTable.rows[i].cells[0].innerHTML = (i+1); 
+         if(i%2==0)    //偶数行 
+            oTable.rows[i].className = "ys01";
+     } 
+ }
+ 
+ </script> 
+
+</head>
+<body onload="order();order1()">
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/admin_home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			
+			<li><a href="/admin_course/">课程信息</a>
+			</li>
+			<li><a href="/admin_score/">成绩信息</a>
+                        </li>
+			<li><a href="/admin_contro/">选课系统控制</a></li>			
+			<li><a href="/admin_logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+ 	<div class="welcome">
+                  
+		<p>admin你好！</p>
+                   
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+<form action="/admin_score/" method="post">
+	<div class="main">
+           <div class="gallery">
+	  <h3 class="style1">成绩分类查询：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <tr>                	
+	              <td><font color="#FF0000">*</font>学年学期：</td>
+	                    <td>
+							 <select name="Semester" id="xnxqid" class="XNXQ_CON">
+							 	<option value="">-全部-</option>		                		
+						  			<option value="2013-20141" >2013秋季</option>						  		
+						  			<option value="2013-20142" >2014春季</option>
+						  			<option value="2013-20143" >2014夏季</option>
+						  			<option value="2014-20151" >2014秋季</option>
+						  			<option value="2014-20152" >2015春季</option>
+						  			<option value="2014-20153" >2015夏季</option>
+						  			<option value="2015秋季学期" selected >2015秋季</option>
+						  		
+		                	                 </select> 
+	                    </td>                  
+                    
+                    <td>课程：</td>
+                    <td><input type="text" name="SearchCourse" style="width: 90px;"/>  <input type="submit" value="查询"/></td>
+		    <td>学号：</td>
+		    <td><input type="text" name="SearchStudent" style="width: 90px;"/>  <input type="submit" value="查询"/></td>
+
+                </tr>
+            </table>
+			<div class="details">
+			
+			<div class="det_pic">
+                             <hr/>
+			     <div class="header_bg11">
+               <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="7%"><font color="#FFFFFF">序号</font></th>
+                  <th width="20%"><font color="#FFFFFF">学号</font></th>
+                  <th width="15%"><font color="#FFFFFF">姓名</font></th>
+                  <th width="15%"><font color="#FFFFFF">课程代码</font></th>
+                  <th width="25%"><font color="#FFFFFF">课程名称</font></th>
+                  <th width="10%"><font color="#FFFFFF">总成绩</font></th>
+		          <th width="8%"></th>
+                </tr>			
+                </table>        	  
+			</div>
+             <hr/>           
+			<div class="det_text">
+			
+		<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+          <tbody id="bbsTab"> 
+          {% for o in ScoreCourse %}		  
+		<tr>
+                  <th width="7%" height="50px"></th>
+                  <th width="20%"  height="50px">{{o.StudentS.StudentID}}</th>
+                  <th width="15%" height="50px">{{o.StudentS.BasicInformation.Name}}</th>
+                  <th width="15%" height="50px">{{o.SelectedCourse.CourseID}}</th>
+                  <th width="25%" height="50px">{{o.SelectedCourse.CourseName}}</th>
+                  <th width="10%" height="50px">{{o.Score}}</th>
+                  <th width="8%" height="50px"><a href="/admin_score_change/?q={{ o.id }}">更新</a></th>
+                </tr>
+				{% endfor %}
+				</tbody>
+                </table>	
+
+           
+                
+
+           
+		<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+          <tbody id="bbsTab1"> 
+          {% for o in ScoreStudent %}		  
+		<tr>
+                  <th width="7%" height="50px"></th>
+                  <th width="20%"  height="50px">{{o.StudentS.StudentID}}</th>
+                  <th width="15%" height="50px">{{o.StudentS.BasicInformation.Name}}</th>
+                  <th width="15%" height="50px">{{o.SelectedCourse.CourseID}}</th>
+                  <th width="25%" height="50px">{{o.SelectedCourse.CourseName}}</th>
+                  <th width="10%" height="50px">{{o.Score}}</th>
+                  <th width="8%" height="50px"><a href="/admin_score_change/?q={{ o.id }}">更新</a></th>
+                </tr>
+				{% endfor %}
+				</tbody>
+                </table>
+                			
+		 
+                
+
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+
+</div>
+</body>
+</html>

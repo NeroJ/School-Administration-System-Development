@@ -1,0 +1,681 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<head>
+<title>课表查询</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+
+<script>
+function myFunction()
+{
+alert("恭喜您，导出课表成功!");
+}
+</script>
+
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+					<li><a href="/changepassword/">修改密码</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+		<p>{{p.BasicInformation.Name}}同学你好！</p>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+		<div class="gallery">
+			<h3 class="style1">个人课表查询：</h3>
+			<form method="post">
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <tr>                	
+	              <td>学年学期：</td>
+	                    <td>
+							 <select name="pageXnxq" id="xnxqid" class="XNXQ_CON">
+							 	<option value="">-全部-</option>		                		
+						  			<option value="2015-20161" selected >2015秋季</option>
+						  		
+		                	                 </select> 
+	                    </td>                  
+                    
+                    <td>  <input type="submit" value="导出课表" onclick="myFunction()"/></td>
+                    
+                </tr>
+            </table>
+			</form>
+			<div class="det_pic">
+                             <hr/>
+                                  <div class="header_bg11">
+				  <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+                <tr>
+                  				
+                  <th width="100%"><font color="#FFFFFF">2015秋季学期（{{p.BasicInformation.StudentID}}）{{p.BasicInformation.Name}}课表</font></th>                 
+                </tr>                 
+            </table>      		         	  
+			</div>
+                        <hr/>
+			 <div class="det_text">
+			  	 <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="addlist_01">
+                 <tr>
+				    <th width="40" height="30" colspan="2">&nbsp;</th>
+				    <th>星期一</th>
+				    <th>星期二</th>
+				    <th>星期三</th>
+				    <th>星期四</th>
+				    <th>星期五</th>
+				    <th>星期六</th>
+				    <th>星期日</th>
+			  	</tr>
+              
+					<tr >
+						<td  width="20">上午</td>
+						<td  width="20">第1,2节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第1,2节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+				
+					<tr class="bgcol">
+						<td  width="20">上午</td>
+						<td  width="20">第3,4节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第3,4节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+				
+					<tr >
+						<td  width="20">下午</td>
+						<td  width="20">第5,6节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第5,6节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+				
+					<tr class="bgcol">
+						<td  width="20">下午</td>
+						<td  width="20">第7,8节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第7,8节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+				
+					<tr >
+						<td  width="20">晚上</td>
+						<td  width="20">第9,10节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第9,10节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+				
+					<tr class="bgcol">
+						<td  width="20">晚上</td>
+						<td  width="20">第11,12节</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期一' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期二' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期三' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期四' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期五' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="118">
+						{% for course in c %}
+						{% if course.Week == '星期六' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+						<td  width="122">
+						{% for course in c %}
+						{% if course.Week == '星期日' and course.TXX == '第11,12节' %}
+						{{course.CourseName}}({{course.CourseID}})
+						<p></p>
+						[{{course.Num}}{{course.ClassID}}]
+						<p></p>
+						[{{course.TimeRange}}]周
+						{% endif %}
+						{% endfor %}
+						</td>
+					</tr>
+					
+			
+		    	
+		    	
+		    	 
+		    	
+             </table>
+			 
+                        <hr/>     
+				<div class="rd_more1">
+				     	
+					</div>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* reset */
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr { margin: 0; padding: 0; }
+body { font: 12px/1.5 Arial; color: #333; background: url(../images/bg.png) repeat; }
+select, input, button { vertical-align: middle; font-size: 100%; }
+ul, ol { list-style: none; }
+fieldset, img { border: 0; }
+em { font-style: normal; }
+.clearfix:after { content: "."; display: block; visibility: hidden; clear: both; height: 0; font-size: 0 }
+.clearfix {  *zoom: 1
+}
+.content .fast-login-btn, .wrong-tips { background: url(../images/login-ico.png)  no-repeat; _background: url(../images/login-ico-ie6.png)  no-repeat; }
+a { color: #134ba0; text-decoration: none; }
+a:hover { color: #c00; text-decoration: underline; }
+.wrapper { position: fixed; top: 50%; left: 50%; width: 976px; height: 394px; margin: -277px 0 0 -488px; _position: absolute; _margin-top: 0; _bottom: auto;  _top: expression(eval(document.documentElement.scrollTop +(  document.documentElement.clientHeight - 554)/2 ) );
+}
+html { height: 100% }
+body { position: relative; min-height: 100%; _height: 100%; cursor: default; _zoom: 1; overflow-x: hidden; }
+.s-skin-container { position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: -5; }
+.s-skin-container li { position: absolute; width: 100%; height: 100%; z-index: 10; background-position: center 0; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; -webkit-background-size: cover; -o-background-size: cover; zoom: 1 }
+.logo-bar { height: 53px; overflow: hidden; }
+.logo-bar h1{
+	font-size:3.25em;
+}
+
+.logo-bar .logo { float: left; width: 171px; height: 53px; text-indent: -999em; overflow: hidden; cursor: pointer; background: url(../images/login-logo.png)  no-repeat;
+}
+.content { position: absolute; width: 906px; height: 284px; margin: 17px 0 0; padding: 40px 30px 0 280px; }
+.content-bg { position: absolute; left: 19%; top: 0; z-index: -1; width: 550px; height: 324px; background-color: #000; opacity: 0.6; filter: alpha(opacity = 60); }
+/*.content .line-bg { position: absolute; top: 40px; left: 554px; width: 1px; height: 244px; font: 0/0 arial; background: rgba(255, 255, 255, 0.11);  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,  startColorstr=#1cffffff, endColorstr=#1cffffff );
+}
+:root .content .line-bg { filter: none; }*/
+/* main */
+.main { float: left; width: 514px; }
+.content .title { height: 16px; font: 16px/16px "Microsoft YaHei"; color: #fff; }
+.content .fast-login-btn { float: left; width: 128px; height: 36px; margin: 15px 10px 0 0; padding: 0 0 0 52px; overflow: hidden; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font: 14px/36px "Microsoft YaHei"; color: #fff; }
+.content .fast-login-btn:hover { color: #fff; text-decoration: none; }
+.content .qq-btn { background-color: #2f90b7; background-position: 12px 5px; }
+.content .qq-btn:hover { background-color: #3199c2; _background-position: 12px -106px; }
+.content .sina-btn { background-color: #d55d46; background-position: 12px -32px; }
+.content .sina-btn:hover { background-color: #dc6149; _background-position: 12px -143px; }
+.content .ren-btn { background-color: #647aa2; background-position: 12px -69px; }
+.content .ren-btn:hover { background-color: #6981ab; _background-position: 12px -180px; }
+.login-mod { margin: 40px 0 0; }
+.login-mod label.tips { position: absolute; top: 6px; _top: 7px; left: 5px; color: #999; font: 14px/18px "Microsoft YaHei", "Î¢ÈíÑÅºÚ"; }
+.login-mod label.ptips { left: 195px; }
+.loginbox { position: relative; zoom: 1; margin: 15px 0 0; }
+.user-text { height: 22px; width: 170px; padding: 4px 5px; margin: 0 7px 0 0; border: 0 none; color: #333; outline: none; font: 14px/22px "Microsoft YaHei", "Î¢ÈíÑÅºÚ"; }
+.autologon { margin-right: 19px; height: 26px; line-height: 26px; font: 12px/26px arial; color: #ccc; }
+.autologon input { margin: 0 5px 0 0; margin: -1px 5px 0 0\0;  *margin: -1px 2px 0 -5px;
+}
+.loginbox .login-btn { display: inline-block; width: 80px; height: 30px; padding: 0; border: 0 none; background-color: #66a533; cursor: pointer; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font: 16px/30px "Microsoft YaHei"; text-align: center; color: #fff; }
+.loginbox .login-btn:hover { background-color: #6aac35; }
+.loginbox p { margin: 8px 0 0; }
+.loginbox p a { color: #ccc; }
+.loginbox p a:hover { color: #ccc; }
+.wrong-tips { position: absolute; top: 39px; left: 190px; width: 150px; height: 30px; padding: 0 0 0 30px; background-color: #fff392; font: 12px/30px "Microsoft YaHei", "Î¢ÈíÑÅºÚ"; color: #666; background-position: 6px -102px;  _ background-position: 6px -218px;
+}
+/* aside */
+/*.aside { float: left; width: 355px; padding: 0 0 0 31px; }
+.look-formod { margin: 15px 0 0; overflow: hidden; zoom: 1; }
+.search-textbox { float: left; height: 28px; width: 266px; overflow: hidden; margin: 0 10px 0 0; background: rgba(255, 255, 255, 0.2);  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,  startColorstr=#33ffffff, endColorstr=#33ffffff );
+}
+.search-text { height: 22px; width: 256px; padding: 3px 5px; border: 0 none; background: none; color: #333; outline: none; font: 12px/22px arial; }
+:root .search-text { filter: none; }
+.search-btn { float: left; width: 74px; height: 28px; padding: 0; border: 0 none; background-color: #bebebe; cursor: pointer; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font: 12px/28px "Microsoft YaHei"; text-align: center; color: #333; }
+.aside p { margin: 7px 0 0; color: #ccc; }
+.aside p .pic-source { color: #fff; }
+.aside p .pic-source:hover { color: #fff; text-decoration: underline; }*/
+/* µ×²¿ */
+.footer-nav-box { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #333; _position: absolute; _bottom: auto;  _top: expression(eval(document.documentElement.scrollTop +  document.body.clientHeight - 42) );
+}
+.footer-nav { width: 980px; margin: 0 auto; }
+.footer-nav .copyright { float: left; padding: 0 0 0 40px; line-height: 40px; color: #ccc; background: url(../images/footer.png) -256px  -112px no-repeat; }
+.footer-nav p { float: right; line-height: 40px; color: #666; }
+.footer-nav p a { color: #ccc; margin: 0 7px; }
+.footer-nav p a:hover { color: #ccc; }
+* html { background-image: url(about:blank); background-attachment: fixed; }
+/*add by hanjw 2013-11-7 add taobao login icon*/
+.content .taobao-btn { background-color: #e2892b; background-position: 12px -135px; _background-position: 12px -245px; }
+.content .taobao-btn:hover { background-color: #ef9535; _background-position: 12px -280px; }

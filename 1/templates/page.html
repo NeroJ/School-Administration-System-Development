@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<head>
+<title>课程简介</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- start header -->
+
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+		
+			<h3 class="style1">课程详细信息：</h3>
+						 </table>
+			<div class="det_pic">
+                             <hr/>
+                                  <div class="header_bg11">
+				  <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+                <tr>				   
+                  <th width="100%"><font color="#FFFFFF">{{p.CourseName}}（{{p.CourseID}}）</font></th>                 
+                </tr>                 
+            </table>      		         	  
+			</div>
+                        <hr/>
+			 <div class="det_text">
+			  	 <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="addlist_01">
+              
+					<tr >						
+						<td  width="100">上课教师</td>
+						<td  width="500">待定</td>
+						
+					</tr>
+				
+					<tr class="bgcol">
+						<td  width="100">上课时间</td>
+						<td  width="500">{{p.Week}}/{{p.TXX}}</td>
+						
+					</tr>
+					<tr class="bgcol">
+						<td  width="100">上课周次</td>
+						<td  width="500">[{{p.TimeRange}}]</td>
+						
+					</tr>
+				
+					<tr >
+						<td  width="100">上课地点</td>						
+						<td  width="500">{{p.Num}}{{p.ClassID}}</td>
+					</tr>
+				
+					<tr class="bgcol">
+						<td  width="100">课程简介</td>
+						<td  width="500">{{p.Intro}}</td>
+					</tr>
+				
+					
+             </table>
+			
+                           
+          
+	</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+
+</body>
+</html>

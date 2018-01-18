@@ -1,0 +1,271 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>成绩管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+
+<style type="text/css"> 
+td.td_center{text-align:center;} 
+.ys01{background-color:#E6F0FE;}
+ </style> 
+
+<script language="javascript" type="text/javascript"> 
+
+ window.onload = function(){ 
+     var oTable = document.getElementById("bbsTab"); 
+     for(var i=0;i<oTable.rows.length;i++){ 
+         oTable.rows[i].cells[0].innerHTML = (i+1); 
+         if(i%2==0)    //偶数行 
+            oTable.rows[i].className = "ys01"; 
+     } 
+ } 
+ </script> 
+
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+					<li><a href="/changepassword/">修改密码</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+                   {% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+<form method="post">
+	<div class="main">
+           <div class="gallery">
+	  <h3 class="style1">成绩分类查询：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <tr>                	
+	              <td><font color="#FF0000">*</font>学年学期：</td>
+	                    <td>
+							 <select name="Semester" id="xnxqid" class="XNXQ_CON">
+							 	<option value="">-全部-</option>		                		
+						  			<option value="2013-20141" >2013秋季</option>						  		
+						  			<option value="2013-20142" >2014春季</option>
+						  			<option value="2013-20143" >2014夏季</option>
+						  			<option value="2014-20151" >2014秋季</option>
+						  			<option value="2014-20152" >2015春季</option>
+						  			<option value="2014-20153" >2015夏季</option>
+						  			<option value="2015秋季学期" selected >2015秋季</option>
+						  		
+		                	                 </select> 
+	                    </td>                  
+                    <td>重修补考：</td>
+                    <td>
+						 <select name="CXBK"  class="CXBK_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="正考" >正考</option>
+					  		<option value="补考" >补考</option>
+					  		<option value="重修" >重修</option>
+	                	                 </select> 
+                    </td>
+                    <td>是否及格：</td>
+                    <td>
+						 <select name="Pass"  class="SFJG_CON">
+						 	<option value="*">-全部-</option>
+					  		<option value={{True}} >及格</option>
+					  		<option value="" >不及格</option>
+	                	                 </select> 
+                    </td>
+                    <td>课程：</td>
+                    <td><input type="text" name="Search" style="width: 90px;"/>  <input type="submit" value="查询"/></td>
+                    
+                </tr>
+            </table>
+			<div class="details">
+			
+			<div class="det_pic">
+                  <hr/>           
+			     <div class="header_bg11">
+				  
+               <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">序号</font></th>
+                  <th width="6%"><font color="#FFFFFF">学年学期</font></th>
+                  <th width="11%"><font color="#FFFFFF">开课院系</font></th>
+                  <th width="8%"><font color="#FFFFFF">课程代码</font></th>
+                  <th width="20%"><font color="#FFFFFF">课程名称</font></th>
+                  <th width="7%"><font color="#FFFFFF">课程性质</font></th>
+                  <th width="4%"><font color="#FFFFFF">学分</font></th>
+                  <th width="8%"><font color="#FFFFFF">补考重修标记</font></th>
+                  <th width="10%"><font color="#FFFFFF">是否通过</font></th>
+                  <th width="4%"><font color="#FFFFFF">总成绩</font></th>
+                </tr>
+                </table>
+         	  
+			</div>
+                        
+			<div class="det_text">
+                <hr/>        
+			<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+			<tbody id="bbsTab">
+			{% for o in ScoO %}
+               <tr>
+                  <th width="3%" height="50px"></th>
+                  <th width="6%" height="50px">{{o.SelectedCourse.CourseTime}}</th>
+                  <th width="11%" height="50px">{{o.SelectedCourse.CourseFacul}}</th>
+                  <th width="8%" height="50px">{{o.SelectedCourse.CourseID}}</th>
+                  <th width="20%" height="50px">{{o.SelectedCourse.CourseName}}</th>
+                  <th width="7%" height="50px">{{o.SelectedCourse.CourseAttr}}</th>
+                  <th width="4%" height="50px">{{o.SelectedCourse.CourseScore}}</th>
+                  <th width="8%" height="50px">{{o.Re}}</th>
+                  <th width="10%" height="50px">
+                  {% if o.Pass %}
+                   <img src="../medias/imagesHome/pass.png" alt=""/>
+                  {% elif not o.Pass %}
+                   <img src="../medias/imagesHome/Npass.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  <th width="4%">{{o.Score}}</th>
+                </tr>
+               
+				 {% endfor %}
+				</tbody>
+                </table>
+                
+                                                                                                                                                                                                                                                                                                                                                                                           <hr/>
+                            <h3 class="style1">成绩分析：</h3> 
+                                 <hr/>                                                                                                                                                                                                
+				<div class="header_bg11">
+				  <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">学分绩</font></th>
+
+                  <th width="50%"><font color="#FFFFFF">GPA</font></th>
+                  
+      
+                </tr>
+                
+                </table>
+                </div>
+                                <hr/>
+                <div class="det_text">
+				
+   	            <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%">{{r}}</font></th>
+                  
+
+                  <th width="50%">{{GPA}}</font></th>
+                  
+                 
+                  
+                </tr>
+                
+                </table> 
+				<hr/>
+                </div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+
+</div>
+</body>
+</html>

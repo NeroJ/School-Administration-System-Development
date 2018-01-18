@@ -1,0 +1,369 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>教室查询</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+					<li><a href="/changepassword/">修改密码</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+		{% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<form method="post">
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+           <div class="gallery">
+	  <h3 class="style1">教室使用情况查询：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <td><font color="#FF0000">*</font>学年学期：</td>
+                 <td> 
+					 <select name="Semester" id="pageXnxq" onchange="changeXnxq()"  class="XNXQ_CON">
+					 	<option value="">-请选择-</option>
+                		
+				  			<option value="2015-20162" >2016春季</option>
+				  		
+				  			<option value="2015秋季学期" selected>2015秋季</option>
+				  		
+				  			<option value="2014-20153" >2015夏季</option>
+				  		
+				  			<option value="2014-20152" >2015春季</option>
+				  		
+				  			<option value="2014-20151" >2014秋季</option>
+				  		
+				  			<option value="2013-20143" >2014夏季</option>
+				  		
+				  			<option value="2013-20142" >2014春季</option>
+				  		
+				  			<option value="2013-20141" >2013秋季</option>
+				  		
+				  			<option value="2012-20132" >2013春季</option>
+				  		
+				  			<option value="2012-20131" >2012秋季</option>
+				  		
+				  			<option value="2011-20122" >2012春季</option>
+				  		
+				  			<option value="2011-20121" >2011秋季</option>
+				  		
+				  			<option value="2010-20112" >2011春季</option>
+				  		
+				  			<option value="2010-20111" >2010秋季</option>
+				  		
+				  			<option value="2009-20102" >2010春季</option>
+				  		
+				  			<option value="2009-20101" >2009秋季</option>
+				  		
+				  			<option value="2008-20093" >2009夏季</option>
+				  		
+				  			<option value="2008-20092" >2009春季</option>
+				  		
+				  			<option value="2008-20091" >2008秋季</option>
+				  		
+                	</select> 
+                    </td>
+                    <td><font color="#FF0000">*</font>周次：</td>
+                    <td> 
+                    <select name="ZhouCi" id="pageZc1" class="ZC_CON">
+					 	<option value="">-请选择-</option>
+					 	
+				  			<option value="第1周"  >1 周</option>
+				  		
+				  			<option value="第2周"  >2 周</option>
+				  		
+				  			<option value="第3周"  >3 周</option>
+				  		
+				  			<option value="第4周"  >4 周</option>
+				  		
+				  			<option value="第5周"  >5 周</option>
+				  		
+				  			<option value="第6周"  >6 周</option>
+				  		
+				  			<option value="第7周"  >7 周</option>
+				  		
+				  			<option value="第8周"  >8 周</option>
+				  		
+				  			<option value="第9周"  >9 周</option>
+				  		
+				  			<option value="第10周"  >10 周</option>
+				  		
+				  			<option value="第11周"  >11 周</option>
+				  		
+				  			<option value="第12周"  >12 周</option>
+				  		
+				  			<option value="第13周"  >13 周</option>
+				  		
+				  			<option value="第14周"  >14 周</option>
+				  		
+				  			<option value="第15周"  >15 周</option>
+				  		
+				  			<option value="第16周"  >16 周</option>
+				  		
+				  			<option value="第17周"  >17 周</option>
+				  		
+				  			<option value="第18周"  >18 周</option>
+				  		
+                	
+                	</td>
+                    <td ><font color="#FF0000">*</font>星期：</td>
+                    <td><select name="XingQi" onchange="changeXq()"  id="pageXiaoqu" class="XIAOQU_CON">
+					 	<option value="">-全部-</option>
+                		
+				  			<option value="星期一" >一</option>	
+				  			<option value="星期二" >二</option>
+                                                        <option value="星期三" >三</option>
+                                                        <option value="星期四" >四</option>
+                                                        <option value="星期五" >五</option>
+                                                        <option value="星期六" >六</option>
+                                                        <option value="星期日" >日</option>
+				  		
+                	</select>   </td>                     
+
+                    <td ><font color="#FF0000">*</font>校区：</td>
+                    <td><select name="District" onchange="changeXq()"  id="pageXiaoqu" class="XIAOQU_CON">
+					 	<option value="">-全部-</option>
+                		
+				  			<option value="一区" >一校区</option>
+				  		
+				  			<option value="二区" >二校区</option>
+				  		
+                	</select>   </td>
+                    <td><font color="#FF0000">*</font>楼宇：</td>
+                    <td>
+					 <select name="LouYu" onchange="changeLh()" id="pageLhdm" class="LH_CON">
+					 	<option value="">-全部-</option>
+                		                <option value="正心" >正心楼</option>
+                                                <option value="阳光大厅" >阳光大厅</option>
+												<option value="青年公寓" >青年公寓</option>
+												<option value="理学院楼" >理学院楼</option>
+												<option value="新技术楼" >新技术楼</option>
+                	</select> 
+                    </td>
+                    
+	                 <td>
+			                   	<input type="submit" value="查询"/> 
+			             </div>
+	                 </td>
+                </tr>
+            </table>
+            </form>
+            
+            
+        
+                
+               <tr> 
+                               
+		         
+				</tr>
+          
+            </table>
+			<div class="details">
+			
+			<div class="det_pic">
+                            <hr/>
+                           <h4 class="style1">教室查询结果：(<font color="#FF0000">{{S}}</font>\<font color="#FF0000">{{ZC}}</font>\<font color="#FF0000">{{DA}}</font>\<font color="#FF0000">{{Dis}}</font>\<font color="#FF0000">{{LY}}</font>)</h4>
+                             <hr/>
+			     <div class="header_bg11">
+                <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%"><font color="#FFFFFF">楼宇</font></th>
+                  <th width="6%"><font color="#FFFFFF">教室编号</font></th>
+                  <th width="11%"><font color="#FFFFFF">1-2节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">3-4节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">5-6节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">7-8节课</font></th>
+                  <th width="11%"><font color="#FFFFFF">9-10节课</font></th>
+                  
+                </tr>
+                </table>
+         	  
+			</div>
+                        <hr/>
+			<div class="det_text">
+                {% for a in ob %}
+		<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="3%">{{ a.Num }}</th>
+                  <th width="6%">{{ a.ClassID }}</th>                 
+                  <th width="11%">
+                  {% if a.T12 %}
+                   <img src="../medias/imagesHome/RedBug.png" alt=""/>
+                  {% elif not a.T12 %}
+                   <img src="../medias/imagesHome/BlueBug.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  <th width="11%">
+                  {% if a.T34 %}
+                   <img src="../medias/imagesHome/RedBug.png" alt=""/>
+                  {% elif not a.T34 %}
+                   <img src="../medias/imagesHome/BlueBug.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  <th width="11%">
+                  {% if a.T56 %}
+                   <img src="../medias/imagesHome/RedBug.png" alt=""/>
+                  {% elif not a.T56 %}
+                   <img src="../medias/imagesHome/BlueBug.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  <th width="11%">
+                  {% if a.T78 %}
+                   <img src="../medias/imagesHome/RedBug.png" alt=""/>
+                  {% elif not a.T78 %}
+                   <img src="../medias/imagesHome/BlueBug.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  <th width="11%">
+                  {% if a.T910 %}
+                   <img src="../medias/imagesHome/RedBug.png" alt=""/>
+                  {% elif not a.T910 %}
+                   <img src="../medias/imagesHome/BlueBug.png" alt=""/>
+                  {% endif %}
+                  </th>
+                  
+                </tr>
+                </table>                                                                                                                                                                                                                                                                                                                                                                           <hr/>
+                 
+                {% endfor %}
+                 <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+                  <th width="9%"><h4 class="style1">占用：<img src="../medias/imagesHome/RedBug.png" alt=""/>|空闲：<img src="../medias/imagesHome/BlueBug.png" alt=""/></h4></th>
+                  <th width="6%"></th>
+                  <th width="11%"></th>
+                  <th width="11%"></th>
+                  <th width="11%"></th>
+                  <th width="11%"></th>
+                  <th width="11%"></th>
+                </tr>
+                </table>          
+                 </div>
+                        
+            <!-- Pagination -->
+           	<div id="pagination">
+            	<a href="#"><img src="../medias/imagesHome/arrows/arrow_first.png" width="16" height="16" alt="Go to First Page" title="Go to first page" /></a>
+				<a href="#"><img src="../medias/imagesHome/arrows/arrow_previous.png" width="16" height="16" alt="Previous" title="Previous" /></a>
+                <span>1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+               	<a href="#">8</a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_next.png" width="16" height="16" alt="Next" title="Next" /></a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_last.png" width="16" height="16" alt="Go to First Page" title="Go to last page" /></a>
+           </div>
+           <!-- End Pagination -->
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form> 
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

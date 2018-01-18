@@ -1,0 +1,295 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+<head>
+<title>必修课确认</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- JQuery UI CSS Framework -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/ui-lightness/jquery-ui-1.8.4.custom.css"  />
+<!-- End JQuery UI CSS Framework -->
+<!-- General Styles common for all pages -->
+    <link rel="stylesheet" type="text/css" href="../medias/models/globals.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/commons.css" />
+    <link rel="stylesheet" type="text/css" href="../medias/models/plugins.css" />
+ <!-- END General Styles -->
+<link href='http://fonts.useso.com/css?family=Karla' rel='stylesheet' type='text/css'>
+<link href="../medias/models/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../medias/js/jquery.min.js"></script>
+
+<script>
+function myFunction()
+{
+alert("恭喜您，确认成功!");
+}
+function openwin(a)
+{
+window.open('/page/'+ '?'+ 'courseid' + '=' + a,'','width=600,height=400,menubar=no,toolbar=no, status=no, menubar=no, resizable=no, location = no,top=200,left=630,scrollbars=no')
+}
+</script>
+
+<style type="text/css"> 
+td.td_center{text-align:center;} 
+.ys01{background-color:#E6F0FE;}
+ </style> 
+
+<script language="javascript" type="text/javascript"> 
+
+ window.onload = function(){ 
+     var oTable = document.getElementById("bbsTab"); 
+     for(var i=0;i<oTable.rows.length;i++){ 
+         oTable.rows[i].cells[0].innerHTML = (i+1); 
+         if(i%2==0)    //偶数行 
+            oTable.rows[i].className = "ys01"; 
+     } 
+ } 
+ </script> 
+
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg1">
+<div class="wrap">
+<div class="wrapper">
+	<div class="logo">
+		<a href=/home/><img src="../medias/imagesHome/logo.png" alt=""/> </a>
+	</div>
+	<div class="menu">
+		<a class="toggleMenu" href="#">Menu</a>
+		<ul class="nav">
+			<li><a href="#">成绩管理</a>
+				<ul>
+					<li><a href="/score/">成绩查询与分析</a></li>
+				</ul>
+			</li>
+			<li><a href="#">教室管理</a>
+				<ul>
+					<li><a href="/room1/">空闲教室查询</a></li>
+					
+				</ul>
+			</li>
+			<li><a href="#">学生选课</a>
+				<ul>
+					<li><a href="/arbitrary/">全校任选</a></li>
+					<li><a href="/socialism/">人文社科</a></li>
+					<li><a href="/compulsory/">必修确认</a></li>
+                                        <li><a href="/result/">选课结果查询</a></li>
+				</ul>
+			</li>
+			<li><a href="#">个人中心</a>
+                                <ul>
+					<li><a href="/management/">学籍管理</a></li>
+					<li><a href="/timetable/">课表查询</a></li>
+					<li><a href="/changepassword/">修改密码</a></li>
+				</ul>
+                        </li>
+			<li><a href="/accounts/logout/">用户注销</a></li>
+		</ul>
+		</div>
+		<div class="clear"></div>
+	 <script type="text/javascript" src="../medias/js/script.js"></script>
+         <div class="logo1">
+		<a href="#"><img src="../medias/imagesHome/user.png" alt=""/> </a>
+	</div>
+	<div class="welcome">
+		{% for user in p %}
+		<p>{{user.BasicInformation.Name}}同学你好！</p>
+                   {% endfor %}
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+<div class="wrapper">
+	<div class="main">
+		<div class="gallery">
+			<h3 class="style1">请您确认以下必修课：</h3>
+		 <table  border="1" align="right" cellpadding="0" cellspacing="0"  >
+                <tr>                	
+	              <td>*学年学期：</td>
+	                    <td>
+							 <select name="pageXnxq" id="xnxqid" class="XNXQ_CON">
+							 	<option value="">-全部-</option>		                		
+						  			<option value="2015-20161" selected >2015秋季</option>
+						  		
+		                	                 </select> 
+	                    </td>                  
+                    
+                    </td>
+                    
+                    <td>面向年级：</td>
+                    <td>
+						 <select name="pageSfjg"  class="SFJG_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="0104" selected>{{Grade}}</option>
+					  		
+	                	                 </select> 
+                    </td>
+                    <td>面向院系：</td>
+                    <td>
+						 <select name="pageSfjg"  class="SFJG_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="0104" selected>{{Institute}}</option>
+					  		
+	                	                 </select> 
+                    </td>
+                    <td>面向专业：</td>
+                    <td>
+						 <select name="pageSfjg"  class="SFJG_CON">
+						 	<option value="">-全部-</option>
+					  		<option value="0104" selected>{{Major}}</option>
+					  		
+	                	                 </select> 
+                    </td>
+                    
+                </tr>
+            </table>
+			<div class="det_pic">
+                             <hr/>
+                                  <div class="header_bg11">
+				  <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>
+	               
+				    
+				   	
+				    
+				   
+                  <th style="width: 40px;"><p class="para1"><font color="#FFFFFF">序号</font></th>		   
+                  <th style="width: 120px;"><font color="#FFFFFF">操作</font></th>
+
+                  <th style="width: 70px;"><font color="#FFFFFF">课程代码</font></th>
+                  <th style="width: 190px;"><font color="#FFFFFF">课程名称</font></th>
+                  
+                  <th style="width: 90px;"><font color="#FFFFFF">前置课程</font></th>
+                  <th style="width: 80px;"><font color="#FFFFFF">面向对象</font></th>
+                  <th style="width: 70px;"><font color="#FFFFFF">校区</font></th>
+                  <th><font color="#FFFFFF">上课信息</font></th>
+                  
+                  
+                  <th style="width: 80px;"><font color="#FFFFFF">课程性质</font></th>
+                  <th style="width: 130px;"><font color="#FFFFFF">开课院系</font></th>
+                  <th style="width: 50px;"><font color="#FFFFFF">学分</font></th>
+                  <th style="width: 80px;"><font color="#FFFFFF">选课/容量</font></th>
+                </tr> 
+                
+            </table>      		
+         	  
+			</div>
+                        <hr/>
+			<div class="det_text">
+			{% if ctr %}
+			
+			<table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+			<tbody id="bbsTab">
+			{% for a in Co %}
+               <tr>
+	               
+				    
+				   			    
+		  <th style="width: 40px;" height="50px"><p class="para1">
+		  
+		  </th>	
+                  	   
+                  <th style="width: 120px;" height="50px"><a a href=/compulsory/?Coid={{a.id}} onclick="myFunction()">确认</a></p></th>
+                  
+                  <th style="width: 70px;" height="50px">{{ a.CourseID }}</th>
+                  <th style="width: 190px;" height="50px">{{ a.CourseName }}</th>
+                  
+                  <th style="width: 90px;" height="50px">{{ a.PreCourse }}</th>
+                  <th style="width: 80px;" height="50px">{{ a.Facing }}</th>
+                  <th style="width: 70px;" height="50px">{{ a.District }}</th>
+                  <th><a href="#" onclick="openwin({{a.id}})">上课信息</a></th>
+                  
+                  
+                  <th style="width: 80px;" height="50px">{{ a.CourseAttr }}</th>
+                  <th style="width: 130px;" height="50px">{{ a.CourseFacul }}</th>
+                  <th style="width: 50px;" height="50px">{{ a.CourseScore }}</th>
+                  <th style="width: 80px;" height="50px">{{ a.AlreadySele }}/{{ a.Capasity }}</th>
+                </tr> 
+			{% endfor %}	
+            </tbody>     
+            </table>
+                 <hr/>  
+                     		
+                {% else %}
+                <table width="100%"  cellpadding="0" cellspacing="0" style="border-collapse:collapse" class="bot_line">
+               <tr>				   			    
+		          <th style="width: 40px;"><p class="para1">				  
+				   <font color="#FF0000">现在不是合法的选课时间！</font>				  
+				  </th>	                 
+                </tr>                
+            </table> 
+              <hr/>                
+				{% endif %}	         
+				<div class="rd_more1">
+				     	
+					</div>
+			</div>
+                         <!-- Pagination -->
+           	<div id="pagination">
+            	<a href="#"><img src="../medias/imagesHome/arrows/arrow_first.png" width="16" height="16" alt="Go to First Page" title="Go to first page" /></a>
+				<a href="#"><img src="../medias/imagesHome/arrows/arrow_previous.png" width="16" height="16" alt="Previous" title="Previous" /></a>
+                <span>1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+               	<a href="#">8</a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_next.png" width="16" height="16" alt="Next" title="Next" /></a>
+                <a href="#"><img src="../medias/imagesHome/arrows/arrow_last.png" width="16" height="16" alt="Go to First Page" title="Go to last page" /></a>
+           </div>
+           <!-- End Pagination -->
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!-- start footer -->
+<div class="footer_bg">
+
+<div class="clear">
+	
+		<div class="grid1_of_2">
+		
+			<div class="f_grid2 left">
+			<ul class="f_nav">
+				<li><a href="">疑难问题解决</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left">
+			
+			<ul class="f_nav">
+				<li><a href="">宝贵意见</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">联系我们</a></li>
+				
+			</ul>
+			</div>
+			<div class="f_grid2 left hide">
+			
+			<ul class="f_nav">
+				<li><a href="">更多</a></li>
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

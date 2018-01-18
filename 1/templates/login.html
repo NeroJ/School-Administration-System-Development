@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<title>管理员登陆</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href=" ../../medias/models/main2_0.css" rel="stylesheet" />
+
+</head>
+<body>
+<ul class="s-skin-container" id="bg-container">
+  <li id="bg8" class="" style="background-image: url(../../medias/images/003.jpg); display: list-item; z-index: 10;" desc="" link=""></li>
+</ul>
+<div class="wrapper">
+  <div class="logo-bar">  <h1>请输入管理员信息！</h1> </div>
+  <div class="content">
+    <div class="content-bg"></div>
+    <div class="line-bg"></div>
+    <div class="main">
+      <div class="fast-login">
+       
+      </div>
+      <div class="login-mod">
+        <div class="title"> 登录 </div>
+        <div class="loginbox">
+          {% if form.errors %}
+            <p class="error"><font color="#FFFFFF">用户名或密码不正确，请重试</font></p>
+            {% endif %}
+          <form id="loginForm" action="" method="post">
+            {% csrf_token %}
+            
+            <input name="username" type="text" id="username" class="user-text" value="" />
+            
+            <input name="password" type="password" id="password" autocomplete="off" class="user-text" value="" />
+            
+            <input name="login" id="login" type="submit" class="login-btn" value="登录" />
+            <input type="hidden" name="next" value="{{ next|escape }}" />
+            <p>
+              <label class="autologon">
+                <input name="is_auto" checked="checked" type="checkbox" value="1" />
+                记住我</label>
+              <a href="#">忘记密码?</a> </p>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+    
+</div>
+<div class="foot">
+  <div class="footer-nav-box">
+    <div class="footer-nav">
+      <div class="copyright">&copy;Harbin Institute of Technology. All rights reserved.</div>
+      <p><a href="#">联系方式|<a href=/login/>学生登录</a></p>
+    </div>
+  </div>
+</div>
+<div style="text-align:center;">
+</div>
+</body>
+</html>
